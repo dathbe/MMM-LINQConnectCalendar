@@ -40,11 +40,16 @@ Add MMM-LINQConnectCalendar module to the `modules` array in the `config/config.
 },
 ```
 
-| Option           | Description
-| -------          |  -------
-| buildingId | **REQUIRED** The `buildingId` for your school. See [Finding your buildingId and districtId](https://github.com/evanhsu/MMM-TitanSchoolMealMenu?tab=readme-ov-file#finding-your-buildingid-and-districtid).<br>**Type:** `string`<br>**Default:** `` (empty string; will throw an error)
-| districtId | **REQUIRED** The `districtId` for your school. See [Finding your buildingId and districtId](https://github.com/evanhsu/MMM-TitanSchoolMealMenu?tab=readme-ov-file#finding-your-buildingid-and-districtid).<br>**Type:** `string`<br>**Default:** `` (empty string; will throw an error)
-| updateInterval   | Time (in seconds) between image updates.<br><br>**Type:** `int`<br> **Default value:** `15 * 60` (15 minutes)
+| Option         | Description
+| -------        |  -------
+| buildingId     | **REQUIRED** The `buildingId` for your school. See [Finding your buildingId and districtId](https://github.com/evanhsu/MMM-TitanSchoolMealMenu?tab=readme-ov-file#finding-your-buildingid-and-districtid).<br>**Type:** `string`<br>**Default:** `` (empty string; will throw an error)
+| districtId     | **REQUIRED** The `districtId` for your school. See [Finding your buildingId and districtId](https://github.com/evanhsu/MMM-TitanSchoolMealMenu?tab=readme-ov-file#finding-your-buildingid-and-districtid).<br>**Type:** `string`<br>**Default:** `` (empty string; will throw an error)
+| noDays         | The number of upcoming days you would like to display events for.<br>**Type:** `int`<br>**Default:** `30` (will display all events for the next 30 days)
+| maxEntries     | The maximum number of event entries you want to display.<br>**Type:** `int`<br>**Default:** `99` (effectively, no limit)
+| dateFormat     | The format you would like to use to display the date of the event.  See [Moment.js - Home](https://momentjs.com/) for information on formating dates.<br>**Type:** `string`<br>**Default:** `MMM D` (e.g., "May 3")
+| dateHeader     | The header you would like to use for the date column.<br>**Type:** `string`<br>**Default:** `Date`
+| eventHeader    | The header you would like to use for the event column.<br>**Type:** `string`<br>**Default:** `Event`
+| updateInterval | Time (in minutes) between calendar updates.<br><br>**Type:** `int`<br> **Default value:** `4 * 60` (4 hours)
 
 ## Contributing
 
