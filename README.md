@@ -1,6 +1,6 @@
 # MMM-LINQConnectCalendar
 
-A [MagicMirror²](https://magicmirror.builders/) module to display 
+A [MagicMirror²](https://magicmirror.builders/) module to display school calendars provided by LINQConnect.
 
 ## Preview
 
@@ -12,7 +12,7 @@ A [MagicMirror²](https://magicmirror.builders/) module to display
 cd ~/MagicMirror/modules
 git clone https://github.com/dathbe/MMM-LINQConnectCalendar
 cd MMM-LINQConnectCalendar
-npm install --omit=dev
+npm ci --omit=dev
 ```
 
 No dependencies required!
@@ -22,7 +22,7 @@ No dependencies required!
 ```bash
 cd ~/MagicMirror/modules/MMM-LINQConnectCalendar
 git pull
-npm install --omit=dev
+npm ci --omit=dev
 ```
 
 ## Configuration
@@ -34,15 +34,16 @@ Add MMM-LINQConnectCalendar module to the `modules` array in the `config/config.
   module: "MMM-LINQConnectCalendar",
   position: "top_right",
   config: {
-    
+    buildingId: '23125610-cbbc-eb11-a2cb-82fe13669c55',
+    districtId: '93f76ff0-2eb7-eb11-a2c4-e816644282bd',
   }
 },
 ```
 
 | Option           | Description
 | -------          |  -------
-|          | 
-|         | 
+| buildingId | **REQUIRED** The `buildingId` for your school. See [Finding your buildingId and districtId](https://github.com/evanhsu/MMM-TitanSchoolMealMenu?tab=readme-ov-file#finding-your-buildingid-and-districtid).<br>**Type:** `string`<br>**Default:** `` (empty string; will throw an error)
+| districtId | **REQUIRED** The `districtId` for your school. See [Finding your buildingId and districtId](https://github.com/evanhsu/MMM-TitanSchoolMealMenu?tab=readme-ov-file#finding-your-buildingid-and-districtid).<br>**Type:** `string`<br>**Default:** `` (empty string; will throw an error)
 | updateInterval   | Time (in seconds) between image updates.<br><br>**Type:** `int`<br> **Default value:** `15 * 60` (15 minutes)
 
 ## Contributing
