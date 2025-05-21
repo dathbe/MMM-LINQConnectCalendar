@@ -15,7 +15,8 @@ cd MMM-LINQConnectCalendar
 npm ci --omit=dev
 ```
 
-No dependencies required!
+Dependencies:
+* [moment-timezone](https://www.npmjs.com/package/moment-timezone)
 
 ## Updating the Module
 
