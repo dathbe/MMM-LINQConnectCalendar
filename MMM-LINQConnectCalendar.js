@@ -67,7 +67,7 @@ Module.register('MMM-LINQConnectCalendar', {
     wrapper.className = 'LINQConnectCalendar'
 
     if (this.calendarObj === undefined) {
-      wrapper.innerHTML = 'Loading MMM-LINQConnectCalendar . . .'
+      wrapper.innerHTML = 'Loading MMM-LINQConnectCalendar...'
       wrapper.classList.add('light', 'small', 'dimmed')
       return wrapper
     }
