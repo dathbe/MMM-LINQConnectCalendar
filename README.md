@@ -11,6 +11,8 @@ A [MagicMirror²](https://magicmirror.builders/) module to display
 ```bash
 cd ~/MagicMirror/modules
 git clone https://github.com/dathbe/MMM-LINQConnectCalendar
+cd MMM-LINQConnectCalendar
+npm install --omit=dev
 ```
 
 No dependencies required!
@@ -20,6 +22,7 @@ No dependencies required!
 ```bash
 cd ~/MagicMirror/modules/MMM-LINQConnectCalendar
 git pull
+npm install --omit=dev
 ```
 
 ## Configuration
