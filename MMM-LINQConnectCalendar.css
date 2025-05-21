@@ -1,5 +1,4 @@
-.MMM-LINQConnectCalendar th,
-.MMM-LINQConnectCalendar .today {
+.MMM-LINQConnectCalendar th {
   color: #f8dd70;
 }
 
@@ -12,4 +11,9 @@
 .MMM-LINQConnectCalendar .eventTh,
 .MMM-LINQConnectCalendar .eventTd {
   text-align: left;
+}
+
+.MMM-LINQConnectCalendar .today {
+  color: black;
+  background-color: white;
 }
