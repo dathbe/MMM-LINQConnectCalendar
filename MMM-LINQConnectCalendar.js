@@ -52,13 +52,14 @@ Module.register('MMM-LINQConnectCalendar', {
     }
   },
 
- getHeader: function() {
-    if(this.calendarObj !== null && this.calendarObj !== undefined) {
-      return this.data.header ? this.data.header : this.config.header;
-    } else {
-      return null;
+  getHeader: function () {
+    if (this.calendarObj !== null && this.calendarObj !== undefined) {
+      return this.data.header ? this.data.header : this.config.header
     }
-	},
+    else {
+      return null
+    }
+  },
 
   getDom() {
     Log.debug('[MMM-LINQConnectCalendar] Updating DOM')
@@ -93,7 +94,7 @@ Module.register('MMM-LINQConnectCalendar', {
 
       // Create table body
       var self = this
-      for (i=0; i < this.calendarObj.length && i < this.config.maxEntries; i++) {
+      for (let i = 0; i < this.calendarObj.length && i < this.config.maxEntries; i++) {
         const tableRow = document.createElement('tr')
         const dateTd = document.createElement('td')
         dateTd.innerHTML = moment(this.calendarObj[i].Date, 'M/D/YYYY').format(self.config.dateFormat)
