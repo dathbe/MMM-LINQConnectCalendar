@@ -1,14 +1,16 @@
 {
-  "name": "mmm-mystandings",
-  "version": "0.0.1",
-  "description": ".",
+  "name": "mmm-linqconnectcalendar",
+  "version": "1.0.0",
+  "description": "A MagicMirror² module to display school calendars provided by LINQConnect.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dathbe/MMM-SunMap.git"
+    "url": "git+https://github.com/dathbe/MMM-LINQConnectCalendar.git"
   },
   "keywords": [
     "MagicMirror",
-    "Module"
+    "Module",
+    "School",
+    "Calendar"
   ],
   "author": "dathbe",
   "contributors": [
