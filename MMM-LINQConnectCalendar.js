@@ -74,10 +74,11 @@ Module.register('MMM-LINQConnectCalendar', {
       const body = document.createElement('div')
 
       var calTable = document.createElement('table')
-      calTable.classList.add('LINQConnectCalendar-table', 'bright', 'small')
+      calTable.classList.add('LINQConnectCalendar-table', 'small')
 
       // Create header row
       const headerRow = document.createElement('tr')
+      headerRow.classList.add('bright')
       const dateTh = document.createElement('th')
       dateTh.innerHTML = 'Date'
       dateTh.classList.add('dateTh')
@@ -94,15 +95,16 @@ Module.register('MMM-LINQConnectCalendar', {
         const tableRow = document.createElement('tr')
         const dateTd = document.createElement('td')
         dateTd.innerHTML = moment(calEvent.Date, 'M/D/YYYY').format(self.config.dateFormat)
-        dateTd.classList.add('dateTd')
-        if (calEvent.date == moment().format('M/D/YYYY')) {
-          dateTd.classList.add('today')
-        }
+        dateTd.classList.add('dateTd', 'bright')
         tableRow.appendChild(dateTd)
         const eventTd = document.createElement('td')
         eventTd.innerHTML = calEvent.Note
         eventTd.classList.add('eventTd')
         tableRow.appendChild(eventTd)
+        if (calEvent.Date == moment().format('M/D/YYYY')) {
+          dateTd.classList.add('today')
+          eventTd.classList.add('today', 'bright')
+        }
         calTable.appendChild(tableRow)
       })
 

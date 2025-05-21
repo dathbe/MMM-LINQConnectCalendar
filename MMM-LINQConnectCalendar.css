@@ -13,6 +13,10 @@
   text-align: left;
 }
 
+.MMM-LINQConnectCalendar .eventTd {
+  font-weight: 300;
+}
+
 .MMM-LINQConnectCalendar .today {
   color: black;
   background-color: white;
