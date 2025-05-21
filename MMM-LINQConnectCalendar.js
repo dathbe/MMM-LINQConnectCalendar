@@ -50,6 +50,14 @@ Module.register('MMM-LINQConnectCalendar', {
     }
   },
 
+ getHeader: function() {
+    if(this.calendarObj !== null && this.calendarObj !== undefined) {
+      return this.data.header ? this.data.header : this.config.header;
+    } else {
+      return null;
+    }
+	},
+
   getDom() {
     Log.debug('[MMM-LINQConnectCalendar] Updating DOM')
     const wrapper = document.createElement('div')
@@ -62,13 +70,6 @@ Module.register('MMM-LINQConnectCalendar', {
     }
 
     if (this.calendarObj !== null) {
-      // Create header
-      if (this.config.header !== '') {
-        const header = document.createElement('header')
-        header.innerHTML = this.config.header
-        wrapper.appendChild(header)
-      }
-
       // Create body
       const body = document.createElement('div')
 
