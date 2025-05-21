@@ -7,6 +7,8 @@ Module.register('MMM-LINQConnectCalendar', {
     noDays: 30,
     maxEntries: 99,
     dateFormat: 'MMM D',
+    dateHeader: 'Date',
+    eventHeader: 'Event',
     updateInterval: 4 * 60, // 4 hours
   },
 
@@ -80,33 +82,33 @@ Module.register('MMM-LINQConnectCalendar', {
       const headerRow = document.createElement('tr')
       headerRow.classList.add('bright')
       const dateTh = document.createElement('th')
-      dateTh.innerHTML = 'Date'
+      dateTh.innerHTML = this.config.dateHeader
       dateTh.classList.add('dateTh')
       headerRow.appendChild(dateTh)
       const eventTh = document.createElement('th')
-      eventTh.innerHTML = 'Event'
+      eventTh.innerHTML = this.config.eventHeader
       eventTh.classList.add('eventTh')
       headerRow.appendChild(eventTh)
       calTable.appendChild(headerRow)
 
       // Create table body
       var self = this
-      this.calendarObj.forEach(function (calEvent) {
+      for (i=0; i < this.calendarObj.length && i < this.config.maxEntries; i++) {
         const tableRow = document.createElement('tr')
         const dateTd = document.createElement('td')
-        dateTd.innerHTML = moment(calEvent.Date, 'M/D/YYYY').format(self.config.dateFormat)
+        dateTd.innerHTML = moment(this.calendarObj[i].Date, 'M/D/YYYY').format(self.config.dateFormat)
         dateTd.classList.add('dateTd', 'bright')
         tableRow.appendChild(dateTd)
         const eventTd = document.createElement('td')
-        eventTd.innerHTML = calEvent.Note
+        eventTd.innerHTML = this.calendarObj[i].Note
         eventTd.classList.add('eventTd')
         tableRow.appendChild(eventTd)
-        if (calEvent.Date == moment().format('M/D/YYYY')) {
+        if (this.calendarObj[i].Date == moment().format('M/D/YYYY')) {
           dateTd.classList.add('today')
           eventTd.classList.add('today', 'bright')
         }
         calTable.appendChild(tableRow)
-      })
+      }
 
       body.appendChild(calTable)
       wrapper.appendChild(body)
