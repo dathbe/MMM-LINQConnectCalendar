@@ -2,6 +2,9 @@
 
 A [MagicMirror²](https://magicmirror.builders/) module to display school calendars provided by LINQConnect.
 
+[![Platform](https://img.shields.io/badge/platform-MagicMirror²-informational)](https://MagicMirror.builders)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE.md)
+
 ## Preview
 
 ![screenshot](screenshot.png)
