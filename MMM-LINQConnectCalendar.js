@@ -10,6 +10,7 @@ Module.register('MMM-LINQConnectCalendar', {
     dateHeader: 'Date',
     eventHeader: 'Event',
     updateInterval: 4 * 60, // 4 hours
+    filters: [],
   },
 
   // Define required styles.
@@ -95,20 +96,22 @@ Module.register('MMM-LINQConnectCalendar', {
       // Create table body
       var self = this
       for (let i = 0; i < this.calendarObj.length && i < this.config.maxEntries; i++) {
-        const tableRow = document.createElement('tr')
-        const dateTd = document.createElement('td')
-        dateTd.innerHTML = moment(this.calendarObj[i].Date, 'M/D/YYYY').format(self.config.dateFormat)
-        dateTd.classList.add('dateTd', 'bright')
-        tableRow.appendChild(dateTd)
-        const eventTd = document.createElement('td')
-        eventTd.innerHTML = this.calendarObj[i].Note
-        eventTd.classList.add('eventTd')
-        tableRow.appendChild(eventTd)
-        if (this.calendarObj[i].Date == moment().format('M/D/YYYY')) {
-          dateTd.classList.add('today')
-          eventTd.classList.add('today', 'bright')
+        if (this.calendarObj[i].Note.indexOf('K-5') < 0) {
+          const tableRow = document.createElement('tr')
+          const dateTd = document.createElement('td')
+          dateTd.innerHTML = moment(this.calendarObj[i].Date, 'M/D/YYYY').format(self.config.dateFormat)
+          dateTd.classList.add('dateTd', 'bright')
+          tableRow.appendChild(dateTd)
+          const eventTd = document.createElement('td')
+          eventTd.innerHTML = this.calendarObj[i].Note
+          eventTd.classList.add('eventTd')
+          tableRow.appendChild(eventTd)
+          if (this.calendarObj[i].Date == moment().format('M/D/YYYY')) {
+            dateTd.classList.add('today')
+            eventTd.classList.add('today', 'bright')
+          }
+          calTable.appendChild(tableRow)
         }
-        calTable.appendChild(tableRow)
       }
 
       body.appendChild(calTable)
