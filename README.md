@@ -74,6 +74,7 @@ You will need to first install the dev dependencies:
 
 ```bash
 cd ~/MagicMirror/modules/MMM-LINQConnectCalendar
+git switch development
 npm install
 ```
 
