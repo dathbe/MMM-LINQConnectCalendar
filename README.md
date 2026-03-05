@@ -56,6 +56,7 @@ Add MMM-LINQConnectCalendar module to the `modules` array in the `config/config.
 | dateHeader     | The header you would like to use for the date column.<br>**Type:** `string`<br>**Default:** `'Date'`
 | eventHeader    | The header you would like to use for the event column.<br>**Type:** `string`<br>**Default:** `'Event'`
 | updateInterval | Time (in minutes) between calendar updates.<br><br>**Type:** `int`<br> **Default value:** `4 * 60` (4 hours)
+| filters        | List of phrases that, if they are contained in the calendar entry description, will be excluded from the displayed table.<br><br>**Type:** `array` of `str`s<br> **Default value:** `[]`
 
 ## Contributing
 
