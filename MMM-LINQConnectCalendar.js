@@ -96,7 +96,7 @@ Module.register('MMM-LINQConnectCalendar', {
       // Create table body
       var self = this
       for (let i = 0; i < this.calendarObj.length && i < this.config.maxEntries; i++) {
-        if (this.calendarObj[i].Note.indexOf('K-5') < 0) {
+        if (!this.config.filters.some(v => this.calendarObj[i].Note.includes(v))) {
           const tableRow = document.createElement('tr')
           const dateTd = document.createElement('td')
           dateTd.innerHTML = moment(this.calendarObj[i].Date, 'M/D/YYYY').format(self.config.dateFormat)
