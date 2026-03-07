@@ -4,6 +4,12 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1](https://github.com/dathbe/MMM-LINQConnectCalendar/compare/1.1.0...v1.1.1) - 2026-XX-XX
+
+- Improve documentation
+- Format `package.json`
+- Update dependencies
+
 ## [1.1.0](https://github.com/dathbe/MMM-LINQConnectCalendar/compare/1.0.5...v1.1.0) - 2026-03-05
 
 - **NEW FEATURE**: Add `filters` config option to exclude certain calendar entries
