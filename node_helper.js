@@ -27,7 +27,20 @@ module.exports = NodeHelper.create({
       const startDate = moment().format('MM-DD-YYYY')
       const endDate = moment().add(payload.config.noDays, 'days').format('MM-DD-YYYY')
       const url = `https://api.linqconnect.com/api/FamilyMenu?buildingId=${payload.config.buildingId}&districtId=${payload.config.districtId}&startDate=${startDate}&endDate=${endDate}`
-      const response = await fetch(url)
+      const response = await fetch(url, {
+        credentials: 'omit',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:143.0) Gecko/20100101 Firefox/143.0',
+          'Accept': '*/*',
+          'Accept-Language': 'en-US,en;q=0.5',
+          'Sec-GPC': '1',
+          'Sec-Fetch-Dest': 'empty',
+          'Sec-Fetch-Mode': 'cors',
+          'Sec-Fetch-Site': 'same-site',
+          'Priority': 'u=4',
+        },
+        mode: 'cors',
+      })
       Log.debug(`[MMM-LINQConnectCalendar] ${url} fetched`)
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
