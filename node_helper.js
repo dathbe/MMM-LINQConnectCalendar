@@ -6,9 +6,9 @@
  */
 const Log = require('logger')
 const NodeHelper = require('node_helper')
-const moment = require('moment-timezone')
 
 module.exports = NodeHelper.create({
+  requiresVersion: '2.34.0',
 
   start: function () {
     Log.log('Starting node_helper for: ' + this.name)
@@ -24,8 +24,10 @@ module.exports = NodeHelper.create({
 
   async getData(payload) {
     try {
-      const startDate = moment().format('MM-DD-YYYY')
-      const endDate = moment().add(payload.config.noDays, 'days').format('MM-DD-YYYY')
+      var startDate = Temporal.Now.plainDateTimeISO()
+      var endDate = startDate.add({ days: payload.config.noDays })
+      startDate = `${startDate.month.toString().padStart(2, '0')}-${startDate.day.toString().padStart(2, '0')}-${startDate.year}`
+      endDate = `${endDate.month.toString().padStart(2, '0')}-${endDate.day.toString().padStart(2, '0')}-${endDate.year}`
       const url = `https://api.linqconnect.com/api/FamilyMenu?buildingId=${payload.config.buildingId}&districtId=${payload.config.districtId}&startDate=${startDate}&endDate=${endDate}`
       const response = await fetch(url, {
         credentials: 'omit',

@@ -2,6 +2,8 @@
 
 A [MagicMirror²](https://magicmirror.builders/) module to display school calendars provided by LINQConnect.
 
+**Version 2.0.0 relies on the built-in `Temporal` API instead of the `moment-timezone` external dependency.  This requires Node.js v22.21.1 or higher.**  This version of Node.js is already a requirement for MagicMirror² v2.34.0 and higher, so if you are already running the latest version of MagicMirror², the module should work without issue.  For that reason, v2.0.0 has set the minimum required MagicMirror² to v2.34.0.  **It also requires a change to any custom `dateFormat` in your config file.**
+
 [![Platform](https://img.shields.io/badge/platform-MagicMirror²-informational)](https://MagicMirror.builders)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE.md)
 
@@ -14,21 +16,16 @@ A [MagicMirror²](https://magicmirror.builders/) module to display school calend
 ```bash
 cd ~/MagicMirror/modules
 git clone https://github.com/dathbe/MMM-LINQConnectCalendar
-cd MMM-LINQConnectCalendar
-npm install --omit=dev
 ```
 
 Dependencies:
-* [moment-timezone](https://www.npmjs.com/package/moment-timezone)
-
-Note:  running `npm install` is not strictly necessary unless the main MagicMirror² code is changed to eliminate the moment-timezone dependency.
+* None!
 
 ## Updating the Module
 
 ```bash
 cd ~/MagicMirror/modules/MMM-LINQConnectCalendar
 git pull
-npm install --omit=dev
 ```
 
 ## Configuration
@@ -52,7 +49,7 @@ Add MMM-LINQConnectCalendar module to the `modules` array in the `config/config.
 | districtId     | **REQUIRED** The `districtId` for your school. See [Finding your buildingId and districtId](https://github.com/evanhsu/MMM-TitanSchoolMealMenu?tab=readme-ov-file#finding-your-buildingid-and-districtid).<br>**Type:** `string`<br>**Default:** `''` (empty string; will throw an error)
 | noDays         | The number of upcoming days you would like to display events for.<br>**Type:** `int`<br>**Default:** `30` (will display all events for the next 30 days)
 | maxEntries     | The maximum number of event entries you want to display.<br>**Type:** `int`<br>**Default:** `99` (effectively, no limit)
-| dateFormat     | The format you would like to use to display the date of the event.  See [Moment.js - Home](https://momentjs.com/) for information on formatting dates.<br>**Type:** `string`<br>**Default:** `'MMM D'` (e.g., "Jan 1")
+| dateFormat     | The format you would like to use to display the date of the event.  See [Temporal.PlainDate.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/from) for information on formatting dates.<br>**Type:** `string`<br>**Default:** `{ month: 'short', day: 'numeric' }` (e.g., "Jan 1")
 | dateHeader     | The header you would like to use for the date column.<br>**Type:** `string`<br>**Default:** `'Date'`
 | eventHeader    | The header you would like to use for the event column.<br>**Type:** `string`<br>**Default:** `'Event'`
 | updateInterval | Time (in minutes) between calendar updates.<br><br>**Type:** `int`<br> **Default value:** `4 * 60` (4 hours)
