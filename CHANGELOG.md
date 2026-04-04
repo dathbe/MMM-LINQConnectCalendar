@@ -4,6 +4,10 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.3](https://github.com/dathbe/MMM-LINQConnectCalendar/compare/1.1.2...v1.1.4) - 2026-04-04
+
+- Update dependencies
+
 ## [1.1.2](https://github.com/dathbe/MMM-LINQConnectCalendar/compare/1.1.1...v1.1.2) - 2026-03-12
 
 - **BUG FIX**: Update fetch to work with update API
