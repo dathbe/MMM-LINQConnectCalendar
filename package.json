@@ -23,13 +23,10 @@
     "test": "node --run lint"
   },
   "license": "MIT",
-  "dependencies": {
-    "moment-timezone": "^0.6.1"
-  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "eslint": "^10.2.0",
-    "globals": "^17.4.0"
+    "eslint": "^10.4.0",
+    "globals": "^17.6.0"
   }
 }

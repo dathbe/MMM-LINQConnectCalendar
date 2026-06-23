@@ -1,4 +1,6 @@
 Module.register('MMM-LINQConnectCalendar', {
+  requiresVersion: '2.34.0',
+
   // Default module config.
   defaults: {
     header: 'School Calendar',
@@ -6,7 +8,7 @@ Module.register('MMM-LINQConnectCalendar', {
     districtId: null, // Required
     noDays: 30,
     maxEntries: 99,
-    dateFormat: 'MMM D',
+    dateFormat: { month: 'short', day: 'numeric' },
     dateHeader: 'Date',
     eventHeader: 'Event',
     updateInterval: 4 * 60, // 4 hours
@@ -16,11 +18,6 @@ Module.register('MMM-LINQConnectCalendar', {
   // Define required styles.
   getStyles: function () {
     return ['MMM-LINQConnectCalendar.css']
-  },
-
-  // Define required scripts.
-  getScripts: function () {
-    return ['moment.js']
   },
 
   // Start the module.
@@ -99,14 +96,15 @@ Module.register('MMM-LINQConnectCalendar', {
         if (!this.config.filters.some(v => this.calendarObj[i].Note.includes(v))) {
           const tableRow = document.createElement('tr')
           const dateTd = document.createElement('td')
-          dateTd.innerHTML = moment(this.calendarObj[i].Date, 'M/D/YYYY').format(self.config.dateFormat)
+          const [iMonth, iDay, iYear] = this.calendarObj[i].Date.split('/').map(Number)
+          dateTd.innerHTML = Temporal.PlainDate.from({ year: iYear, month: iMonth, day: iDay }).toLocaleString(config.locale, self.config.dateFormat)
           dateTd.classList.add('dateTd', 'bright')
           tableRow.appendChild(dateTd)
           const eventTd = document.createElement('td')
           eventTd.innerHTML = this.calendarObj[i].Note
           eventTd.classList.add('eventTd')
           tableRow.appendChild(eventTd)
-          if (this.calendarObj[i].Date == moment().format('M/D/YYYY')) {
+          if (Temporal.PlainDate.from({ year: iYear, month: iMonth, day: iDay }).equals(Temporal.Now.plainDateISO())) {
             dateTd.classList.add('today')
             eventTd.classList.add('today', 'bright')
           }

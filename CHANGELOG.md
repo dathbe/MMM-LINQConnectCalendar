@@ -4,7 +4,11 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.3](https://github.com/dathbe/MMM-LINQConnectCalendar/compare/1.1.2...v1.1.4) - 2026-04-04
+## [2.0.0](https://github.com/dathbe/MMM-LINQConnectCalendar/compare/1.1.3...v2.0.0) - 2026-XX-XX
+
+- Replace `moment-timezone` with built-in `Temporal`.  **Breaking change.**  Requires Node.js v22.21.1 or higher.  If you are using a custom `dateFormat` config option, you will need to replace it with a format recognized by Temporal.  See README.
+
+## [1.1.3](https://github.com/dathbe/MMM-LINQConnectCalendar/compare/1.1.2...v1.1.3) - 2026-04-04
 
 - Update dependencies
 
